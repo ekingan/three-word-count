@@ -1,15 +1,12 @@
 require_relative 'counter'
-require_relative 'word_array'
-require 'pry'
-# extracts words from a file, formats them, and find their frequency
+# contains functionality related to the words in a file
 class WordParser
   attr_reader :files
   attr_accessor :counter, :word_list
 
-  def initialize(files, counter = Counter.new, word_list = WordArray.new)
+  def initialize(files, counter = Counter.new)
     @files = files
     @counter = counter
-    @word_list = word_list
   end
 
   def frequency
