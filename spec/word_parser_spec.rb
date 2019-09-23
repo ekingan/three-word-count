@@ -25,11 +25,11 @@ RSpec.describe WordParser do
       expect(subject.frequency).to be_a Hash
     end
 
-    it 'returns the expected results' do
+    it 'returns the sorted results' do
       expect(subject.frequency).to eq expected
     end
 
-    it 'returns the results sorted by highest frequency' do
+    it 'returns the results sorted by highest to lowest frequency' do
       results = subject.frequency
       sorted = results.values.each_cons(2).all? { |a, b| (b <=> a) <= 0 }
       expect(sorted).to eq true

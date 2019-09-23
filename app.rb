@@ -1,4 +1,4 @@
-# #!/usr/bin/env ruby
-# require_relative './lib/terminal'
+#!/usr/bin/env ruby
+require_relative './lib/terminal'
 
-# Terminal.run
+Terminal.run

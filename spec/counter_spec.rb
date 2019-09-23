@@ -3,11 +3,7 @@ require_relative '../lib/counter'
 RSpec.describe Counter do
   describe '#grouped' do
     let(:words) { %w[one two three four] }
-    let(:result) { subject.grouped(words) }
-
-    it 'returns a hash object' do
-      expect(result).to be_a Hash
-    end
+    let(:result) { subject.send(:grouped, words) }
 
     it 'stops with the last three words of the file' do
       expect(result.keys.last).to eq %w[two three four]
@@ -25,7 +21,7 @@ RSpec.describe Counter do
 
     it 'counts multiple occurances of three words' do
       words = %w[two two two two]
-      result = subject.grouped(words)
+      result = subject.send(:grouped, words)
       expect(result.values).to eq [2]
     end
   end
