@@ -1,24 +1,19 @@
-# require_relative 'word_parser'
-# # Receives user input and prints program output
-# class Terminal
-#   def run
-#     results = WordParser.new(input).frequency
-#     puts print(results)
-#   end
+require_relative 'word_parser'
+# Receives user input and prints program output
+class Terminal
+  def run(input = ARGF.read)
+    results = WordParser.new(input).frequency
+    print(results)
+  end
 
-#   def self.run
-#     new.run
-#   end
+  def self.run
+    new.run
+  end
 
-#   private 
+  private
 
-#   def input
-#     ARGF.read
-#   end
-
-#   def print(results)
-#     output = []
-#     results.each { |key, value| output << "#{key.join(' ')} - #{value}" }
-#     output
-#   end
-# end
+  def print(results)
+    output = results.map { |key, value| "#{key.join(' ')} - #{value}" }
+    puts output
+  end
+end
